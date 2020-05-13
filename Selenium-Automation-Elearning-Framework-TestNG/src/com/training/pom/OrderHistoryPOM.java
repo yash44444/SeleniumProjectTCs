@@ -15,7 +15,7 @@ public class OrderHistoryPOM {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath = "//span[contains(text(),'YASHU VERMA')]")
+	@FindBy(xpath = "//span[contains(text(),'yashu1 verma1')]")
 	private WebElement accountDropdown;
 
 	@FindBy(xpath = "//ul[@class='dropdown-menu dropdown-menu-right myaccount-menu']//a[contains(text(),'Order History')]")

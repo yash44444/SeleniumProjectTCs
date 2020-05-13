@@ -18,10 +18,18 @@ public  class OrderConfirmationPOM {
 	
 	@FindBy(xpath="//h2[contains(text(),'Order Information')]")
 	private WebElement confirmation;
+	
+	@FindBy(xpath="//td//a[2][contains(@href,'return')]/i[@class='fa fa-reply']")
+	private WebElement returnLink;
 		
 	public String confirmationPage() {
 		String expected=this.confirmation.getText(); 
 		return expected;
+	}
+	
+	public void returnLink() {
+		this.returnLink.click();
+		
 	}
 	
 	

@@ -19,7 +19,7 @@ import com.training.utility.DriverNames;
 
 import junit.framework.Assert;
 
-public class ModifyPersonalDetails_UFM_005 {
+public class ModifyPersonalDetails_UFM005 {
 
 	// making changes again
 	private WebDriver driver;
