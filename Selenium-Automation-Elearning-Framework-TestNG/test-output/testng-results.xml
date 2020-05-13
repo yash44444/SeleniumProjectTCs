@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="37604" started-at="2020-05-13T08:43:38Z" finished-at="2020-05-13T08:44:16Z">
+  <suite name="Default suite" duration-ms="28747" started-at="2020-05-13T15:01:11Z" finished-at="2020-05-13T15:01:40Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="37604" started-at="2020-05-13T08:43:38Z" finished-at="2020-05-13T08:44:16Z">
-      <class name="com.training.sanity.Mediumtests.PlaceOrder_UNF034">
-        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.Mediumtests.PlaceOrder_UNF034@8e0379d]" name="setUpBeforeClass" is-config="true" duration-ms="18" started-at="2020-05-13T14:13:38Z" finished-at="2020-05-13T14:13:38Z">
+    <test name="Default test" duration-ms="28747" started-at="2020-05-13T15:01:11Z" finished-at="2020-05-13T15:01:40Z">
+      <class name="com.training.sanity.Mediumtests.ReturnOrder_UNF036">
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.Mediumtests.ReturnOrder_UNF036@8e0379d]" name="setUpBeforeClass" is-config="true" duration-ms="17" started-at="2020-05-13T20:31:11Z" finished-at="2020-05-13T20:31:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.Mediumtests.PlaceOrder_UNF034@8e0379d]" name="setUp" is-config="true" duration-ms="15659" started-at="2020-05-13T14:13:38Z" finished-at="2020-05-13T14:13:54Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.Mediumtests.ReturnOrder_UNF036@8e0379d]" name="setUp" is-config="true" duration-ms="16168" started-at="2020-05-13T20:31:11Z" finished-at="2020-05-13T20:31:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="homePage()[pri:0, instance:com.training.sanity.Mediumtests.PlaceOrder_UNF034@8e0379d]" name="homePage" duration-ms="20133" started-at="2020-05-13T14:13:54Z" finished-at="2020-05-13T14:14:14Z">
+        <test-method status="PASS" signature="homePage()[pri:0, instance:com.training.sanity.Mediumtests.ReturnOrder_UNF036@8e0379d]" name="homePage" duration-ms="3266" started-at="2020-05-13T20:31:27Z" finished-at="2020-05-13T20:31:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- homePage -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.Mediumtests.PlaceOrder_UNF034@8e0379d]" name="tearDown" is-config="true" duration-ms="1765" started-at="2020-05-13T14:14:14Z" finished-at="2020-05-13T14:14:16Z">
+        <test-method status="PASS" signature="viewOrderHistory()[pri:0, instance:com.training.sanity.Mediumtests.ReturnOrder_UNF036@8e0379d]" name="viewOrderHistory" duration-ms="7311" started-at="2020-05-13T20:31:31Z" finished-at="2020-05-13T20:31:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- viewOrderHistory -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.Mediumtests.ReturnOrder_UNF036@8e0379d]" name="tearDown" is-config="true" duration-ms="1940" started-at="2020-05-13T20:31:38Z" finished-at="2020-05-13T20:31:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.training.sanity.Mediumtests.PlaceOrder_UNF034 -->
+      </class> <!-- com.training.sanity.Mediumtests.ReturnOrder_UNF036 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
