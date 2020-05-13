@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" parallel="none">
   <test name="Default test(failed)" parallel="none">
     <classes>
-      <class name="com.training.sanity.Mediumtests.AdminAddProduct_UNF035">
+      <class name="com.training.sanity.Mediumtests.PlaceOrder_UNF034">
         <methods>
-          <include name="catalogPage"/>
           <include name="tearDown"/>
-          <include name="setUpBeforeClass"/>
           <include name="setUp"/>
+          <include name="setUpBeforeClass"/>
+          <include name="homePage"/>
         </methods>
-      </class> <!-- com.training.sanity.Mediumtests.AdminAddProduct_UNF035 -->
+      </class> <!-- com.training.sanity.Mediumtests.PlaceOrder_UNF034 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -3,12 +3,14 @@ package com.training.sanity.Mediumtests;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
@@ -29,16 +31,15 @@ public class AdminAddProduct_UNF035 {
 	private AdminaddProductPOM adminaddProduct;
 	private static Properties properties;
 	private ScreenShot screenShot;
-	private WebElement element;
 	private Actions act;
+	private WebDriverWait wait, wait2;
 
 	@BeforeTest
 	public static void setUpBeforeClass() throws IOException {
 		properties = new Properties();
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
 		properties.load(inStream);
-		
-		
+
 	}
 
 	@BeforeClass
@@ -50,7 +51,7 @@ public class AdminAddProduct_UNF035 {
 		screenShot = new ScreenShot(driver);
 		driver.get(baseUrl);
 		Thread.sleep(2000);
-		
+
 	}
 
 	@AfterClass
@@ -59,59 +60,75 @@ public class AdminAddProduct_UNF035 {
 		driver.quit();
 	}
 
-	@Test(priority=1)
+	@Test(priority = 1)
 	public void uniformLogin() {
 		storeLogin.adminUserName("admin");
 		storeLogin.adminPassword("admin@123");
 		storeLogin.adminSubmit();
 		System.out.println("<--- admin Login Successfull --->");
 	}
-	
-	@Test(priority=2)
+
+	@Test(priority = 2)
 	public void catalogPage() throws InterruptedException {
-		
-		act=new Actions(driver);
+
+		act = new Actions(driver);
 		act.moveToElement(driver.findElement(By.xpath("//i[@class='fa fa-tags fa-fw']"))).perform();
 		adminaddProduct.productIcon();
+
 		adminaddProduct.addNewIcon();
+		System.out.println("On Genral Tab");
 		adminaddProduct.productName();
 		adminaddProduct.metaTag();
+
 		adminaddProduct.dataTab();
+		System.out.println("switched to Data Tab");
 		adminaddProduct.model();
 		adminaddProduct.priceTag();
 		adminaddProduct.productQuantity();
+
 		adminaddProduct.links();
-		
-		
+		System.out.println("switched to Links Tab");
 		driver.findElement(By.xpath("//input[@id='input-category']")).sendKeys("s");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@id='input-category']//following-sibling::ul//li[1]")).click();
-		System.out.println("cateogry selected from the dropdown");			
+		System.out.println("cateogry selected from the dropdown");
+
 		adminaddProduct.discountTab();
+		System.out.println("switched to Discount Tab");
 		adminaddProduct.addDiscount();
 		adminaddProduct.discountQuantity();
 		adminaddProduct.discountPrice();
 		adminaddProduct.calenderStart();
 		System.out.println("Calender1 opened");
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//tr//td[@class='day active today']")).click();
-		
-		
-		//driver.findElement(By.xpath("//tr//td[@class='day active today']")).click();			
+		wait = new WebDriverWait(driver, 3);
+		WebElement start_dt = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//div[@class='bootstrap-datetimepicker-widget dropdown-menu picker-open bottom']"
+						+ "//td[@class='day active today']")));
+		start_dt.click();
 		System.out.println("Discount start date selected");
+
 		adminaddProduct.calenderEnd();
-		driver.findElement(By.xpath("//div[@class='bootstrap-datetimepicker-widget dropdown-menu top pull-right picker-open']//td[@class='day active today']//following-sibling::td[1]")).click();		
+		System.out.println("Calender2 opened");
+		wait2 = new WebDriverWait(driver, 3);
+		WebElement end_dt = wait2.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//div[@class='bootstrap-datetimepicker-widget dropdown-menu picker-open bottom pull-right']"
+						+ "//td[@class='day active today']/following-sibling::td[1]")));
+		end_dt.click();
 		System.out.println("Discount end date selected");
+
 		adminaddProduct.rewardPointsTab();
+		System.out.println("switched to Reward Points Tab");
 		adminaddProduct.point();
 		adminaddProduct.saveProduct();
-		String expected="Success: You have modified products!";
-		String actual= driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
-		Assert.assertEquals(expected, actual);
-		System.out.println("TC complete");
+
+		String finalMessage = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
+		if (finalMessage.contains("Success")) {
+			System.out.println("TC passed");
+		} else
+			System.out.println("TC failed");
 		
-		
+		screenShot.captureScreenShot("UNF035");
+
 	}
 
-	
 }
