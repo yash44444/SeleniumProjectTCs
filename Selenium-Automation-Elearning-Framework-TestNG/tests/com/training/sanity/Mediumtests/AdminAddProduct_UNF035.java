@@ -3,8 +3,6 @@ package com.training.sanity.Mediumtests;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -122,11 +120,7 @@ public class AdminAddProduct_UNF035 {
 		adminaddProduct.saveProduct();
 
 		String finalMessage = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
-		if (finalMessage.contains("Success")) {
-			System.out.println("TC passed");
-		} else
-			System.out.println("TC failed");
-		
+		Assert.assertTrue(finalMessage.contains("Success"));
 		screenShot.captureScreenShot("UNF035");
 
 	}

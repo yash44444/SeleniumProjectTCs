@@ -7,6 +7,7 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
@@ -62,20 +63,15 @@ public class PlaceOrder_UNF034 {
 		sel.selectByIndex(1);
 		guestPlaceOrder.addCart();
 
-		String successMessage = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
-
-		if (successMessage.contains("Success")) {
-			System.out.println("Product added successfully to the cart");
-		} else {
-			System.out.println("Product was not added");
-		}
-
+		String actualMessage = "Success: You have added Regular T-Shirt (Maroon) to your shopping cart!";
+		String retrievedMessage = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
+		Assert.assertTrue(retrievedMessage.contains(actualMessage));
+		System.out.println(retrievedMessage);
 		screenShot.captureScreenShot("UNF034_ProductAddedtoCart");
 
 		guestPlaceOrder.CartBtn();
 		guestPlaceOrder.viewCart();
 		guestPlaceOrder.checkOut();
-		System.out.println("checked out of cart");
 		guestPlaceOrder.guestRadio();
 		guestPlaceOrder.guestContinue();
 
@@ -97,15 +93,14 @@ public class PlaceOrder_UNF034 {
 
 		guestAccountBilling.billingContinue();
 		guestAccountBilling.shippingComments();
-		System.out.println("comments added for free shipping");
-		guestAccountBilling.commentsContinue();		
+		guestAccountBilling.commentsContinue();
 		Thread.sleep(2000);
 		guestAccountBilling.deliveryInformationCheckbox();
 		guestAccountBilling.deliveryContinue();
 		guestAccountBilling.confirmOrder();
 		guestAccountBilling.orderPlacedMsg();
 		System.out.println("Order placed, TC complete");
-		screenShot.captureScreenShot("UNF034_finalPage");
+		screenShot.captureScreenShot("UNF034");
 
 	}
 

@@ -21,7 +21,6 @@ import junit.framework.Assert;
 
 public class ModifyPersonalDetails_UFM005 {
 
-	// making changes again
 	private WebDriver driver;
 	private String baseUrl;
 	private UniformStoreLoginPOM storeLogin;
@@ -30,7 +29,6 @@ public class ModifyPersonalDetails_UFM005 {
 	private static Properties properties;
 	private ScreenShot screenShot;
 
-	// Hello 
 	@BeforeTest
 	public static void setUpBeforeClass() throws IOException {
 		properties = new Properties();
@@ -48,7 +46,6 @@ public class ModifyPersonalDetails_UFM005 {
 		screenShot = new ScreenShot(driver);
 		driver.get(baseUrl);
 		Thread.sleep(3000);
-		System.out.println("Tryng the guthub push!");
 	}
 
 	@AfterClass
@@ -57,7 +54,7 @@ public class ModifyPersonalDetails_UFM005 {
 		driver.quit();
 	}
 
-	@Test(priority=1)
+	@Test(priority = 1)
 	public void uniformLogin() {
 		storeLogin.accountLogin();
 		storeLogin.sendUserName("yash0002@gmail.com");
@@ -67,8 +64,8 @@ public class ModifyPersonalDetails_UFM005 {
 
 	}
 
-	@Test(priority=2)
-	public void editingAccountInfo() {		
+	@Test(priority = 2)
+	public void editingAccountInfo() {
 		System.out.println("<--- landed on edit Account page --->");
 		myAccount.editAccount();
 		System.out.println("<--- clicked on edit account information link --->");
@@ -79,9 +76,9 @@ public class ModifyPersonalDetails_UFM005 {
 		modifyPersonalDetails.continueBtn();
 		System.out.println("<--- Account updated --->");
 	}
-	
-	@Test(priority=3)
-	public void AssertingSuccessMessage() {	
+
+	@Test(priority = 3)
+	public void AssertingSuccessMessage() {
 		String expectedsuccessMessage = "Success: Your account has been successfully updated.";
 		Assert.assertEquals(expectedsuccessMessage, modifyPersonalDetails.updateSuccess());
 		System.out.println(modifyPersonalDetails.updateSuccess() + " -- message printed");

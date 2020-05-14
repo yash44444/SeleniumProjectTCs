@@ -3,16 +3,13 @@ package com.training.sanity.tests;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
 import com.training.generics.ScreenShot;
 import com.training.pom.ChangePasswordPOM;
-import com.training.pom.MyAccountPOM;
 import com.training.pom.UniformStoreLoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;

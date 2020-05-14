@@ -3,8 +3,6 @@ package com.training.sanity.tests;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -33,8 +31,7 @@ public class OrderHistory_UFM004 {
 		properties = new Properties();
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
 		properties.load(inStream);
-		
-		
+
 	}
 
 	@BeforeClass
@@ -46,9 +43,8 @@ public class OrderHistory_UFM004 {
 		orderConfirmation = new OrderConfirmationPOM(driver);
 		screenShot = new ScreenShot(driver);
 		driver.get(baseUrl);
-		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Thread.sleep(2000);
-		
+
 	}
 
 	@AfterClass
@@ -57,7 +53,7 @@ public class OrderHistory_UFM004 {
 		driver.quit();
 	}
 
-	@Test(priority=1)
+	@Test(priority = 1)
 	public void uniformLogin() {
 		storeLogin.accountLogin();
 		storeLogin.sendUserName("yash0002@gmail.com");
@@ -66,21 +62,21 @@ public class OrderHistory_UFM004 {
 		System.out.println("<--- Login Successfull --->");
 	}
 
-	@Test(priority=2)
+	@Test(priority = 2)
 	public void viewOrderHistory() {
 		order_History.orderHistory();
 		System.out.println("<--- Clicked on Order History --->");
 		order_History.viewButton();
 		System.out.println("<--- Clicked on view button --->");
-		
+
 	}
-	
-	@Test(priority=3)
+
+	@Test(priority = 3)
 	public void validateOrderHistory() {
 		String Actual = "Order Information";
 		Assert.assertEquals(Actual, orderConfirmation.confirmationPage());
 		System.out.println("<--- landed on order information page.TC completed --->");
 		screenShot.captureScreenShot("UFM_004");
-		System.out.println("Screenshot captured!");
+		
 	}
 }

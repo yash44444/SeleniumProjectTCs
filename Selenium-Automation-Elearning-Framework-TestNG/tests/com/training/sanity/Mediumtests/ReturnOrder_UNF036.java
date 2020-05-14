@@ -4,16 +4,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import com.training.generics.ScreenShot;
-import com.training.pom.GuestAccountBillingPOM;
-import com.training.pom.GuestPlaceOrderPOM;
 import com.training.pom.OrderConfirmationPOM;
 import com.training.pom.OrderHistoryPOM;
 import com.training.pom.ReturnPagePOM;
@@ -46,8 +44,8 @@ public class ReturnOrder_UNF036 {
 		baseUrl = properties.getProperty("BaseURL");
 		storeLogin = new UniformStoreLoginPOM(driver);
 		order_History = new OrderHistoryPOM(driver);
-		orderConfirmation=new OrderConfirmationPOM(driver);
-		returnPage=new ReturnPagePOM(driver);
+		orderConfirmation = new OrderConfirmationPOM(driver);
+		returnPage = new ReturnPagePOM(driver);
 		screenShot = new ScreenShot(driver);
 		driver.get(baseUrl);
 		Thread.sleep(2000);
@@ -68,28 +66,29 @@ public class ReturnOrder_UNF036 {
 		storeLogin.sendUserPassword("welcome1231");
 		storeLogin.submit();
 		System.out.println("<--- Login Successfull --->");
-	
+
 	}
-	
-	@Test(priority=2)
+
+	@Test(priority = 2)
 	public void viewOrderHistory() {
 		order_History.orderHistory();
 		System.out.println("<--- Clicked on Order History --->");
 		order_History.viewButton();
 		System.out.println("<--- Clicked on view button --->");
-		
+
 		orderConfirmation.returnLink();
 		returnPage.orderError();
 		returnPage.prodOpen();
 		returnPage.faultyComments();
 		returnPage.returnPolicyCheckbox();
 		returnPage.returnSubmit();
-		
-		String ReturnMessage = driver.findElement(By.xpath
-				("//p[contains(text(),'Thank you for submitting your return request. Your')]")).getText();
-		
-		System.out.println("The message at the end page is:  "+ReturnMessage);
-		
+
+		String ReturnMessage = driver
+				.findElement(By.xpath("//p[contains(text(),'Thank you for submitting your return request. Your')]"))
+				.getText();
+
+		Assert.assertTrue(ReturnMessage.contains("Thank you"));
+		screenShot.captureScreenShot("UNF036");
 	}
-	
+
 }
