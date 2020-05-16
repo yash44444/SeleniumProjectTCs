@@ -92,7 +92,7 @@ public class AdminAddProduct_UNF035 {
 		System.out.println("cateogry selected from the dropdown");
 
 		adminaddProduct.discountTab();
-		System.out.println("switched to Discount Tab");
+		System.out.println("switched to Discount Tab!");
 		adminaddProduct.addDiscount();
 		adminaddProduct.discountQuantity();
 		adminaddProduct.discountPrice();

@@ -70,8 +70,8 @@ public class PasswordChange_UFM006 {
 	
 	@Test(priority=3)
 	public void AssertingSuccessMessage() {	
-		String expectedsuccessMessage = "Success: Your password has been successfully updated.";
-		Assert.assertEquals(expectedsuccessMessage,changePassword.pswChangeSuccess());
+		String expectedSuccessMessage = "Success: Your password has been successfully updated.";
+		Assert.assertEquals(expectedSuccessMessage,changePassword.pswChangeSuccess());
 		System.out.println(changePassword.pswChangeSuccess() + " -- message printed");
 		screenShot.captureScreenShot("UFM_006");
 

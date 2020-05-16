@@ -58,6 +58,7 @@ public class AdminaddProductPOM {
 	@FindBy(xpath="//td[@class='text-right']//input[@placeholder='Quantity']")
 	private WebElement discountQuantity;
 	
+	
 	@FindBy(xpath="//td[@class='text-right']//input[@placeholder='Price']")
 	private WebElement discountPrice;
 	
