@@ -1,4 +1,4 @@
-package com.training.sanity.Mediumtests;
+package com.training.sanity.Medium;
 
 import java.io.FileInputStream;
 import java.io.IOException;
