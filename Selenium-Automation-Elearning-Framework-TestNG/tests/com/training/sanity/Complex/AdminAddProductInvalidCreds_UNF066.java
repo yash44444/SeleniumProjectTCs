@@ -14,18 +14,18 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import com.training.dataproviders.LoginDataProviders;
 import com.training.generics.ScreenShot;
-import com.training.pom.AdminaddProductMandatoryPOM;
+import com.training.pom.AdminaddProductInvalidPOM;
 import com.training.pom.UniformStoreLoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
 import junit.framework.Assert;
 
-public class AdminAddProductValidCreds {
+public class AdminAddProductInvalidCreds_UNF066 {
 	private WebDriver driver;
 	private String baseUrl;
 	private UniformStoreLoginPOM storeLogin;
-	private AdminaddProductMandatoryPOM adminAddProductMandatory;
+	private AdminaddProductInvalidPOM adminaddProductInvalid;
 	private static Properties properties;
 	private ScreenShot screenShot;
 	private Actions act;
@@ -41,7 +41,7 @@ public class AdminAddProductValidCreds {
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		storeLogin = new UniformStoreLoginPOM(driver);
-		adminAddProductMandatory = new AdminaddProductMandatoryPOM(driver);
+		adminaddProductInvalid = new AdminaddProductInvalidPOM(driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver);
 		driver.get(baseUrl);
@@ -55,6 +55,8 @@ public class AdminAddProductValidCreds {
 
 	@Test(priority = 1)
 	public void uniformLogin() throws InterruptedException {
+		
+		// Logging as admin.
 		storeLogin.adminUserName("admin");
 		storeLogin.adminPassword("admin@123");
 		storeLogin.adminSubmit();
@@ -63,30 +65,36 @@ public class AdminAddProductValidCreds {
 
 	}
 
-	@Test(priority = 2, dataProvider = "input2", dataProviderClass = LoginDataProviders.class)
+	@Test(priority = 2, dataProvider = "input3", dataProviderClass = LoginDataProviders.class)
 
-	public void addProductValid(String productName, String metaTag, String model, String price, String qtty, String category)
-			throws InterruptedException {
+	public void addProductInvalid(String productName, String metaTag, String model, String price, String qtty,
+			String category) throws InterruptedException {
 
+		// clicking on product icon
 		act = new Actions(driver);
 		act.moveToElement(driver.findElement(By.xpath("//i[@class='fa fa-tags fa-fw']"))).perform();
-		adminAddProductMandatory.productIcon();
-		adminAddProductMandatory.addNewIcon();
-		adminAddProductMandatory.productName(productName);
-		adminAddProductMandatory.metaTag(metaTag);
-		adminAddProductMandatory.dataTab();
-		adminAddProductMandatory.model(model);
-		adminAddProductMandatory.priceTag(price);
-		adminAddProductMandatory.productQuantity(qtty);
-		adminAddProductMandatory.links();
-		adminAddProductMandatory.categoriesList(category);
+		adminaddProductInvalid.productIcon();
+
+		adminaddProductInvalid.addNewIcon();
+		adminaddProductInvalid.productName(productName);
+		adminaddProductInvalid.metaTag(metaTag);
+
+		// clicking on data tab.
+		adminaddProductInvalid.dataTab();
+		adminaddProductInvalid.model(model);
+		adminaddProductInvalid.priceTag(price);
+		adminaddProductInvalid.productQuantity(qtty);
+
+		// clicking on link tab.
+		adminaddProductInvalid.links();
+		adminaddProductInvalid.categoriesList(category);
 		driver.findElement(By.xpath("//div[@id='tab-links']//li[1]")).click();
-		adminAddProductMandatory.saveProduct();
+		adminaddProductInvalid.saveProduct();
 
-		String finalMessage = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
-		Assert.assertTrue(finalMessage.contains("Success"));
-		screenShot.captureScreenShot("UNF065");
-
+		// Asserting final message.
+		String finalMessage = driver.findElement(By.xpath("//*[contains(text(),'Warning')]")).getText();
+		Assert.assertTrue(finalMessage.contains("Warning"));
+		screenShot.captureScreenShot("UNF066");
 	}
 
 }

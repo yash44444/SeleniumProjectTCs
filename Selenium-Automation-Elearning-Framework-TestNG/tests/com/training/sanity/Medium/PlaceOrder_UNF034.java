@@ -3,6 +3,7 @@ package com.training.sanity.Medium;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -43,7 +44,7 @@ public class PlaceOrder_UNF034 {
 		guestAccountBilling = new GuestAccountBillingPOM(driver);
 		screenShot = new ScreenShot(driver);
 		driver.get(baseUrl);
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 	}
 
@@ -56,6 +57,7 @@ public class PlaceOrder_UNF034 {
 	@Test
 	public void homePage() throws InterruptedException {
 
+		// Entering application as guest user.
 		guestPlaceOrder.maroonTshirt();
 		System.out.println("clicked on tshirt");
 
@@ -63,6 +65,7 @@ public class PlaceOrder_UNF034 {
 		sel.selectByIndex(1);
 		guestPlaceOrder.addCart();
 
+		// Asserting message when product added to cart.
 		String actualMessage = "Success: You have added Regular T-Shirt (Maroon) to your shopping cart!";
 		String retrievedMessage = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
 		Assert.assertTrue(retrievedMessage.contains(actualMessage));
@@ -85,16 +88,13 @@ public class PlaceOrder_UNF034 {
 
 		Select country = new Select(driver.findElement(By.xpath("//select[@id='input-payment-country']")));
 		country.selectByVisibleText("India");
-		Thread.sleep(2000);
 		Select region = new Select(driver.findElement(By.xpath("//select[@id='input-payment-zone']")));
 		region.selectByVisibleText("Goa");
-		Thread.sleep(2000);
 		System.out.println("billing address entered");
 
 		guestAccountBilling.billingContinue();
 		guestAccountBilling.shippingComments();
 		guestAccountBilling.commentsContinue();
-		Thread.sleep(2000);
 		guestAccountBilling.deliveryInformationCheckbox();
 		guestAccountBilling.deliveryContinue();
 		guestAccountBilling.confirmOrder();

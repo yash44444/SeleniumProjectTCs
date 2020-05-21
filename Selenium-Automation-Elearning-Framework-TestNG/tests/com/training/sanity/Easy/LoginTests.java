@@ -1,4 +1,4 @@
-package com.training.sanity.easy;
+package com.training.sanity.Easy;
 
 import java.io.FileInputStream;
 import java.io.IOException;
