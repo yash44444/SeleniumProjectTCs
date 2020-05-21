@@ -1,10 +1,6 @@
 package com.training.readexcel;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import org.testng.annotations.DataProvider;
-
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
@@ -29,7 +25,7 @@ public class ReadExcel {
 				
 				for (int i= 1 ; i < totalNoOfRows; i++) 
 				{
-					for (int j=0; j < totalNoOfCols; j++) 
+					for (int j=2; j < totalNoOfCols; j++) 
 					{
 						arrayExcelData[i-1][j] = sh.getCell(j, i).getContents();
 					}
@@ -43,7 +39,7 @@ public class ReadExcel {
 
 	// Test method, change the path of the .xls file 
 	public static void main(String[] args) {
-		String[][] result = new ReadExcel().getExcelData("C:/Users/Naveen/Desktop/Testing.xls", "Sheet1"); 
+		String[][] result = new ReadExcel().getExcelData("C:\\Users\\YashuVerma\\Desktop\\data.xlsx", "UNF065"); 
 		
 		for(String [] temp : result){
 			for(String temp1: temp){

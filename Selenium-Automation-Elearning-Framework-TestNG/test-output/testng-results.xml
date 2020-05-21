@@ -1,29 +1,173 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="22311" started-at="2020-05-14T05:02:59Z" finished-at="2020-05-14T05:03:21Z">
+  <suite name="Default suite" duration-ms="82633" started-at="2020-05-21T04:38:30Z" finished-at="2020-05-21T04:39:52Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="22311" started-at="2020-05-14T05:02:59Z" finished-at="2020-05-14T05:03:21Z">
-      <class name="com.training.sanity.Mediumtests.PlaceOrder_UNF034">
-        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.Mediumtests.PlaceOrder_UNF034@8e0379d]" name="setUpBeforeClass" is-config="true" duration-ms="32" started-at="2020-05-14T10:32:59Z" finished-at="2020-05-14T10:32:59Z">
+    <test name="Default test" duration-ms="82633" started-at="2020-05-21T04:38:30Z" finished-at="2020-05-21T04:39:52Z">
+      <class name="com.training.sanity.Complex.AdminAddProductInvalidCreds">
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.Complex.AdminAddProductInvalidCreds@341b80b2]" name="setUpBeforeClass" is-config="true" duration-ms="115" started-at="2020-05-21T10:08:30Z" finished-at="2020-05-21T10:08:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.Mediumtests.PlaceOrder_UNF034@8e0379d]" name="setUp" is-config="true" duration-ms="14709" started-at="2020-05-14T10:32:59Z" finished-at="2020-05-14T10:33:13Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.Complex.AdminAddProductInvalidCreds@341b80b2]" name="setUp" is-config="true" duration-ms="14956" started-at="2020-05-21T10:08:30Z" finished-at="2020-05-21T10:08:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="homePage()[pri:0, instance:com.training.sanity.Mediumtests.PlaceOrder_UNF034@8e0379d]" name="homePage" duration-ms="4905" started-at="2020-05-14T10:33:13Z" finished-at="2020-05-14T10:33:18Z">
+        <test-method status="PASS" signature="uniformLogin()[pri:0, instance:com.training.sanity.Complex.AdminAddProductInvalidCreds@341b80b2]" name="uniformLogin" duration-ms="3727" started-at="2020-05-21T10:08:45Z" finished-at="2020-05-21T10:08:48Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- homePage -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.Mediumtests.PlaceOrder_UNF034@8e0379d]" name="tearDown" is-config="true" duration-ms="2638" started-at="2020-05-14T10:33:18Z" finished-at="2020-05-14T10:33:21Z">
+        </test-method> <!-- uniformLogin -->
+        <test-method status="PASS" signature="addProductInvalid(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.training.sanity.Complex.AdminAddProductInvalidCreds@341b80b2]" name="addProductInvalid" duration-ms="15426" started-at="2020-05-21T10:08:50Z" data-provider="input3" finished-at="2020-05-21T10:09:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addProductInvalid -->
+        <test-method status="PASS" signature="addProductInvalid(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.training.sanity.Complex.AdminAddProductInvalidCreds@341b80b2]" name="addProductInvalid" duration-ms="14877" started-at="2020-05-21T10:09:06Z" data-provider="input3" finished-at="2020-05-21T10:09:21Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Blazer(II-V)]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addProductInvalid -->
+        <test-method status="PASS" signature="addProductInvalid(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.training.sanity.Complex.AdminAddProductInvalidCreds@341b80b2]" name="addProductInvalid" duration-ms="14428" started-at="2020-05-21T10:09:21Z" data-provider="input3" finished-at="2020-05-21T10:09:35Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Socks]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[socks]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addProductInvalid -->
+        <test-method status="PASS" signature="addProductInvalid(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.training.sanity.Complex.AdminAddProductInvalidCreds@341b80b2]" name="addProductInvalid" duration-ms="15604" started-at="2020-05-21T10:09:35Z" data-provider="input3" finished-at="2020-05-21T10:09:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Sh]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[shirt]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[SHI-201]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2000]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[5]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Shirt]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addProductInvalid -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.Complex.AdminAddProductInvalidCreds@341b80b2]" name="tearDown" is-config="true" duration-ms="1599" started-at="2020-05-21T10:09:51Z" finished-at="2020-05-21T10:09:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.training.sanity.Mediumtests.PlaceOrder_UNF034 -->
+      </class> <!-- com.training.sanity.Complex.AdminAddProductInvalidCreds -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

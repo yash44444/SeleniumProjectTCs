@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" parallel="none">
   <test name="Default test(failed)" parallel="none">
     <classes>
-      <class name="com.training.sanity.Mediumtests.PlaceOrder_UNF034">
+      <class name="com.training.sanity.Complex.AdminAddProductInvalidCreds">
         <methods>
-          <include name="tearDown"/>
           <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="addProductInvalid" invocation-numbers="0 1 2 3"/>
           <include name="setUpBeforeClass"/>
-          <include name="homePage"/>
         </methods>
-      </class> <!-- com.training.sanity.Mediumtests.PlaceOrder_UNF034 -->
+      </class> <!-- com.training.sanity.Complex.AdminAddProductInvalidCreds -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
